@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RichPanel || Plan Selection</title>
+    <link rel="stylesheet" href="css/planSelection.css" />
+  </head>
+  <body>
+    <div class="outerDiv">
+      <div class="innerDiv">
+        <div class="divHeading">
+          <div class="headingText">Choose the Right Plan for You</div>
+          <div class="priceToggle">
+            <div class="switch-wrapper">
+              <input id="monthly" type="radio" name="switch" checked />
+              <input id="yearly" type="radio" name="switch" />
+              <label for="monthly">Monthly</label>
+              <label for="yearly">Yearly</label>
+              <span class="highlighter"></span>
+            </div>
+          </div>
+        </div>
+        <div class="planSelection">
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    <div>
+                      Select your plan
+                    </div>
+                  </th>
+                  <th>
+                    <div class="heading" onclick="activate(this)">Mobile</div>
+                  </th>
+                  <th>
+                    <div class="heading" onclick="activate(this)">Basic</div>
+                  </th>
+                  <th>
+                    <div class="heading" onclick="activate(this)">Standard</div>
+                  </th>
+                  <th>
+                    <div class="heading active" onclick="activate(this)">
+                      Premium
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="priceCat">
+                    <div class="price monthly">
+                      <div class="amount">Monthly Price</div>
+                    </div>
+                    <div class="price yearly hide">
+                      <div class="amount">Yearly Price</div>
+                    </div>
+                  </td>
+                  {{#each plans}}
+                    <td>
+                      <div class="price monthly">
+                        <div class="amount">
+                          {{this.mPrice}}
+                        </div>
+                      </div>
+                      <div class="price yearly hide">
+                        <div class="amount">{{this.yPrice}}</div>
+                      </div>
+                    </td>
+                  {{/each}}
+                </tr>
+                <tr>
+                  <td>Video Quality</td>
+                  {{#each plans}}
+                    <td>
+                      {{this.vQuality}}
+                    </td>
+                  {{/each}}
+                </tr>
+                <tr>
+                  <td>Resolution</td>
+                  {{#each plans}}
+                    <td>
+                      {{this.res}}
+                    </td>
+                  {{/each}}
+                </tr>
+                <tr>
+                  <td>No. of Devices</td>
+                  {{#each plans}}
+                    <td>
+                      {{this.numDevices}}
+                    </td>
+                  {{/each}}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="submitSection">
+          <div class="nextBtn" id="nextBtn">Next</div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="js/axios.min.js"></script>
+  <script src="js/planSelection.js"></script>
+</html>

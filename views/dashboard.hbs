@@ -1,0 +1,65 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RichPanel || Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css" />
+  </head>
+  <body>
+    <div class="outerDiv">
+      <div class="innerDiv">
+        <div class="dashHead">
+          <div class="dashTitle">
+            <div class="titleBox">Current Plan Details</div>
+            {{#if user.plan}}
+              <div class="statusBox active">Active</div>
+            {{else}}
+              <div class="statusBox cancel">Cancelled</div>
+            {{/if}}
+          </div>
+          {{#if user.plan}}
+            <div class="cancelBox" id="cancelBtn">
+              Cancel
+            </div>
+          {{/if}}
+        </div>
+        {{#if user.plan}}
+          <div class="dashMain">
+            <div class="planName">
+              <div class="planText">{{plan.name}}</div>
+            </div>
+            <div class="planAmount">
+              <span class="bold">₹ {{plan.yPrice}}</span>/yr
+            </div>
+            <div class="changePlanBox">
+              <div class="changePlanBtn" id="changePlanBtn">
+                Change Plan
+              </div>
+            </div>
+          </div>
+          <div class="dashFoot">
+            <div class="footMsg">
+              Your subscription has started on
+              <span class="bold">Jul 11th, 2022</span>
+              and will auto renew on
+              <span class="bold">Jul 12th 2023</span>.
+            </div>
+          </div>
+        {{else}}
+          <div class="dashMain">
+            <div class="planName">
+              <div class="planText">No Active Plan Yet</div>
+            </div>
+            <div class="changePlanBox">
+              <div class="changePlanBtn" id="changePlanBtn">
+                Select a Plan
+              </div>
+            </div>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  </body>
+  <script src="js/axios.min.js"></script>
+  <script src="/js/dashboard.js"></script>
+</html>

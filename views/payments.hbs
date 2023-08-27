@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RichPanel || Payment</title>
+    <link rel="stylesheet" href="/css/payments.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="outerDiv">
+        <div class="innerDiv">
+            <div class="leftSection">
+                <div class="paymentHead">Complete Payment</div>
+                <div class="paymentTail">Enter your Credit or Debit Card details below</div>
+                <div class="cardDetails">
+                    <div class="cardIcon"><i class="fa-regular fa-credit-card" style="color: #b8b8b8;"></i></div>
+                    <input type="text" class="cardNum" placeholder="Card Number">
+                    <input type="text" class="expMo" placeholder="MM">/
+                    <input type="text" class="expYr" placeholder="YY">
+                    <input type="text" class="cvc" placeholder="CVC">
+                </div>
+                <div class="confirmPayment">
+                    <div class="confirmBtn" id="confirmBtn">Confirm Payment</div>
+                </div>
+            </div>
+            <div class="rightSection">
+                <div class="rightHead">
+                    Order Summary
+                </div>
+                <div class="planDetails">
+                    <div class="r1">
+                        <div class="planKey">Plan Name</div>
+                        <div class="planVal">{{plan.name}}</div>
+                    </div>
+                    <div class="r2">
+                        <div class="planKey">Billing Cycle</div>
+                        <div class="planVal">Monthly</div>
+                    </div>
+                    <div class="r3">
+                        <div class="planKey">Plan Price</div>
+                        <div class="planVal">Rs {{plan.mPrice}}/mo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("confirmBtn").addEventListener("click", ()=>{
+        window.location.href = "/dashboard"
+    })
+</script>
+</html>
